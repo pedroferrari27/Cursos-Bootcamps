@@ -1,0 +1,35 @@
+{
+  "templater-obsidian:templates/template aula": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "End"
+    }
+  ],
+  "templater-obsidian:templates/Template_aula.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "1"
+    }
+  ],
+  "templater-obsidian:templates/Template_conceitos.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "2"
+    }
+  ],
+  "quickadd:choice:157849c3-98a1-456b-8e14-89278b79be46": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "A"
+    }
+  ]
+}
