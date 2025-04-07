@@ -1,0 +1,1 @@
+Ctrl-Shift-A para criar um link para a pasta Conceito com uma nova nota
