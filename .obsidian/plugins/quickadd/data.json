@@ -6,7 +6,7 @@
       "type": "Capture",
       "command": true,
       "appendLink": true,
-      "captureTo": "AVENADE dio/Conceitos/{{value:Titulo}}",
+      "captureTo": "AWS Solutions Architect Associate/Conceitos/{{value:Titulo}}",
       "captureToActiveFile": false,
       "createFileIfItDoesntExist": {
         "enabled": true,
