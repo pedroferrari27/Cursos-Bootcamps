@@ -36,11 +36,76 @@
       "openFileInMode": "default"
     },
     {
+      "id": "dab8fdc7-21e2-4c4f-97fc-bd612aec191f",
+      "name": "snipet-to-note-tagged",
+      "type": "Capture",
+      "command": true,
+      "appendLink": true,
+      "captureTo": "AWS Solutions Architect Associate/Conceitos/{{value:Titulo}}",
+      "captureToActiveFile": false,
+      "createFileIfItDoesntExist": {
+        "enabled": true,
+        "createWithTemplate": true,
+        "template": "templates/Template_conceitos_tagged.md"
+      },
+      "format": {
+        "enabled": true,
+        "format": "{{selected}}\n"
+      },
+      "insertAfter": {
+        "enabled": false,
+        "after": "",
+        "insertAtEnd": true,
+        "considerSubsections": false,
+        "createIfNotFound": false,
+        "createIfNotFoundLocation": "bottom"
+      },
+      "prepend": true,
+      "task": false,
+      "openFileInNewTab": {
+        "enabled": true,
+        "direction": "vertical",
+        "focus": false
+      },
+      "openFile": true,
+      "openFileInMode": "default"
+    },
+    {
       "id": "eaf02e45-6b63-4d91-8022-9bad7590c48d",
       "name": "exercicios",
       "type": "Macro",
       "command": true,
       "macroId": "88f81bda-2707-4613-ac5b-9e8e0dc5ab46"
+    },
+    {
+      "id": "efd6fd54-c11d-4130-b158-abaadba75c06",
+      "name": "nova-aula",
+      "type": "Template",
+      "command": true,
+      "templatePath": "templates/Template_aulas.md",
+      "fileNameFormat": {
+        "enabled": true,
+        "format": "{{value}}"
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "AWS Solutions Architect Associate/aulas"
+        ],
+        "chooseWhenCreatingNote": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false
     }
   ],
   "macros": [

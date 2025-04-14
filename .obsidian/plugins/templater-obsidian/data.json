@@ -21,6 +21,10 @@
     {
       "folder": "conceitos",
       "template": "templates/Template_conceitos.md"
+    },
+    {
+      "folder": "AWS Solutions Architect Associate",
+      "template": "templates/Template_Linked.md"
     }
   ],
   "syntax_highlighting": true,

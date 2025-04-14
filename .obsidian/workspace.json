@@ -8,37 +8,37 @@
         "type": "tabs",
         "children": [
           {
-            "id": "34e1c6ceb75f630d",
+            "id": "38926769535863c7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 - Solutions architect associate level.md",
+                "file": "AWS Solutions Architect Associate/aulas/Scalability and Availability.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EC2 - Solutions architect associate level"
+              "title": "Scalability and Availability"
             }
           }
         ]
       },
       {
-        "id": "51adf70e9581dec0",
+        "id": "0efc62ba38f23687",
         "type": "tabs",
         "children": [
           {
-            "id": "50972b2e8042de91",
+            "id": "bc983469e5d466b5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Solutions Architect Associate/Conceitos/IP Público , Privado e Elastic IP.md",
+                "file": "AWS Solutions Architect Associate/Conceitos/Sticky Sessions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IP Público , Privado e Elastic IP"
+              "title": "Sticky Sessions"
             }
           }
         ]
@@ -196,54 +196,54 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "50972b2e8042de91",
+  "active": "bc983469e5d466b5",
   "lastOpenFiles": [
-    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 - Solutions architect associate level.md",
-    "AWS Solutions Architect Associate/Conceitos/IP Público , Privado e Elastic IP.md",
-    "AWS Solutions Architect Associate/Conceitos/aa.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 inicio.md",
-    "AWS Solutions Architect Associate/Exercicios/quiz ec2 base.md",
-    "README.md",
-    "Images/Pasted image 20250407182039.png",
-    "Images/Pasted image 20250407182016.png",
-    "Images/Pasted image 20250407181921.png",
-    "Images/Pasted image 20250407181845.png",
-    "Images/Pasted image 20250407181823.png",
-    "Images/Pasted image 20250407181746.png",
-    "Images/Pasted image 20250407181721.png",
-    "Images/Pasted image 20250407181639.png",
-    "Images/Pasted image 20250407181617.png",
-    "Images/Pasted image 20250407181555.png",
+    "Images/Pasted image 20250411191952.png",
+    "Images/Pasted image 20250411191841.png",
+    "AWS Solutions Architect Associate/Conceitos/Gateway Load Balancer (GWLB).md",
+    "AWS Solutions Architect Associate/Conceitos/Sticky Sessions.md",
+    "AWS Solutions Architect Associate/aulas/Scalability and Availability.md",
+    "Images/Pasted image 20250411191559.png",
+    "Images/Pasted image 20250411191548.png",
+    "AWS Solutions Architect Associate/Conceitos/Network Load Balancing (NLB).md",
+    "Images/Pasted image 20250411190837.png",
+    "Images/Pasted image 20250411190805.png",
+    "Images/Pasted image 20250411190727.png",
+    "AWS Solutions Architect Associate/Conceitos/Application Load Balancing(ALB).md",
+    "Images/Pasted image 20250411190010.png",
+    "Images/Pasted image 20250411185623.png",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/teste de EC2.md",
+    "Images/Pasted image 20250411184246.png",
+    "Images/Pasted image 20250411183638.png",
+    "AWS Solutions Architect Associate/Conceitos/Elastic Load Balancing(ELB).md",
+    "AWS Solutions Architect Associate/Conceitos/High Availability and Scalability.md",
     "AWS Solutions Architect Associate/aulas/Setup Free tier.md",
-    "AWS Solutions Architect Associate/INFO.md",
-    "AWS Solutions Architect Associate/aulas/Conhecimentos Requeridos.md",
+    "templates/Template_conceitos_tagged.md",
+    "templates/Template_conceitos.md",
+    "templates/Template_aulas.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Rds, Aurora, Elastic Cache",
+    "AWS Solutions Architect Associate/aulas/Serviços/Rds, Aurora, Elastic Cache/RDS, Aurora, Elastic Cache.md",
+    "Atalhos.md",
+    "templates/Template_tagged.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 - Solutions architect associate level.md",
+    "AWS Solutions Architect Associate/Conceitos/ao.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 inicio.md",
+    "AWS Solutions Architect Associate/Conceitos/EBS.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 instance Storage.md",
+    "templates/Create_Linked_Note_with_Inherited_Tags.js",
+    "AWS Solutions Architect Associate/Conceitos/AMI - Amazon Machine Image.md",
+    "AWS Solutions Architect Associate/Conceitos/LImpeza de arquivos.md",
+    "AWS Solutions Architect Associate/Conceitos/EC2 Instance Store.md",
+    "AWS Solutions Architect Associate/Conceitos/EBS vs EFS.md",
+    "AWS Solutions Architect Associate/Conceitos/Amazon EFS.md",
     "AWS Solutions Architect Associate/aulas/Serviços/EC2",
     "AWS Solutions Architect Associate/aulas/Serviços",
-    "Tags/tags.md",
-    "Template Modulos/INFO.md",
-    "AVENADE dio/INFO.md",
-    "Atalhos.md",
-    "AVENADE dio/Conceitos/DOM.md",
     "AWS Solutions Architect Associate/aulas",
     "AWS Solutions Architect/Projetos",
     "AWS Solutions Architect Associate/Exercicios",
     "AWS Solutions Architect Associate/Conceitos",
     "AWS Solutions Architect Associate/Certificados",
     "AWS Solutions Architect Associate",
-    "AVENADE dio/Conceitos/ORM.md",
-    "AVENADE dio/Conceitos/Exeption handlers.md",
-    "AVENADE dio/Conceitos/Maven.md",
-    "AVENADE dio/Conceitos/injeção de dependência.md",
-    "AVENADE dio/Conceitos/aplication.properties.md",
-    "AVENADE dio/Conceitos/Autowired.md",
-    "AVENADE dio/aulas/Angular/Estrutura projeto Angular.md",
-    "AVENADE dio/aulas/Angular/ANGULAR 17+.md",
-    "AVENADE dio/Certificados/Introdução ao Angular.pdf",
-    "AVENADE dio/aulas/Angular/Typescript para Angular.md",
-    "AVENADE dio/Certificados/Typescript para Angular.pdf",
-    "AVENADE dio/aulas/Angular/Angular.md",
-    "AVENADE dio/Conceitos/Web Components.md",
-    "AVENADE dio/Conceitos/Props.md",
     "canvas/Untitled.canvas",
     "canvas/geral.canvas"
   ]

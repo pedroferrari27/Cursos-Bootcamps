@@ -31,5 +31,23 @@
       ],
       "key": "A"
     }
+  ],
+  "quickadd:choice:dab8fdc7-21e2-4c4f-97fc-bd612aec191f": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Z"
+    }
+  ],
+  "quickadd:choice:efd6fd54-c11d-4130-b158-abaadba75c06": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "X"
+    }
   ]
 }
