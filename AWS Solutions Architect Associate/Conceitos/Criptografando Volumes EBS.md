@@ -2,6 +2,7 @@
 aliases: 
 tags:
   - AWS-EC2
+  - AWS-SECURITY
 ---
 ---
 Creation : 10th April 2025
