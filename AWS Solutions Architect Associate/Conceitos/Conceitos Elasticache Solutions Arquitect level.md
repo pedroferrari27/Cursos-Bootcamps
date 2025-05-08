@@ -1,7 +1,6 @@
 ---
 aliases: 
 tags:
-  - AWS
   - AWS-SECURITY
   - AWS-RDS
 ---

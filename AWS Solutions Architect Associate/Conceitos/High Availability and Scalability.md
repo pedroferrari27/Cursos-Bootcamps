@@ -2,6 +2,8 @@
 aliases: 
 tags:
   - AWS
+  - AWS-EC2
+  - AWS-RDS
 ---
 ---
 Creation : 11th April 2025

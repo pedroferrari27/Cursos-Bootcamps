@@ -27,6 +27,20 @@
         "a": 1,
         "rgb": 6902496
       }
+    },
+    {
+      "query": "path:\"AWS Solutions Architect Associate/aulas\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 15084891
+      }
+    },
+    {
+      "query": "path:\"AWS Solutions Architect Associate/Conceitos\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 14069540
+      }
     }
   ],
   "collapse-display": false,

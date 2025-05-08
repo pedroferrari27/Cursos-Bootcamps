@@ -1,7 +1,6 @@
 ---
 aliases: 
 tags:
-  - AWS
   - AWS-EC2
 ---
 Creation : 14th April 2025
