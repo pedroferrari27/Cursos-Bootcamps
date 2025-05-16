@@ -2,6 +2,7 @@
 tags:
   - AWS-S3
   - AWS-SECURITY
+  - AWS-STORAGE
 ---
 ---
 Creation : 13th May 2025

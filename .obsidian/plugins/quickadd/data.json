@@ -106,6 +106,13 @@
       "openFileInMode": "default",
       "fileExistsMode": "Increment the file name",
       "setFileExistsBehavior": false
+    },
+    {
+      "id": "91d278fd-3688-49f2-863d-58e2b86f531e",
+      "name": "create concept note",
+      "type": "Macro",
+      "command": true,
+      "macroId": "18ca8924-7d5f-4338-a6db-89493a157f3c"
     }
   ],
   "macros": [
@@ -127,6 +134,20 @@
       "name": "quick conceitos",
       "id": "dde17604-7cef-4a52-b61d-b40ac53a6917",
       "commands": [],
+      "runOnStartup": false
+    },
+    {
+      "name": "Create concept note",
+      "id": "18ca8924-7d5f-4338-a6db-89493a157f3c",
+      "commands": [
+        {
+          "name": "create_concept",
+          "type": "UserScript",
+          "id": "74e3ba66-4b34-48dc-a76d-4464fbc57942",
+          "path": "scripts/create_concept.js",
+          "settings": {}
+        }
+      ],
       "runOnStartup": false
     }
   ],
