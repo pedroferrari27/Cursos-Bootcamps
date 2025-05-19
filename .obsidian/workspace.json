@@ -133,12 +133,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "aulas/AULA 22.md",
+                "file": "AWS Solutions Architect Associate/Conceitos/AWS Snowball.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from AULA 22"
+              "title": "Outgoing links from AWS Snowball"
             }
           },
           {
@@ -191,7 +191,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,18 +207,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f9809bf798ab06a6",
+  "active": "a8465b6fa9e73ce1",
   "lastOpenFiles": [
+    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/other storage solutions.md",
+    "AWS Solutions Architect Associate/Conceitos/AWS Snowball.md",
+    "templates/Template_aulas.md",
     "AWS Solutions Architect Associate/Exercicios/Untitled.md",
     "templates/setDateProperty.js",
     "templates/Template_aulas 1.md",
-    "templates/Template_aulas.md",
     "templates/Untitled 1.md",
     "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/Untitled.md",
-    "templates/Template_aulas.md",
     "templates/concept_template.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/other storage solutions.md",
-    "AWS Solutions Architect Associate/Conceitos/AWS Snowball.md",
     "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 Security.md",
     "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 SAA Concepts.md",
     "conceitos/AWS Snowball.md",
