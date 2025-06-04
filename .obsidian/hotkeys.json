@@ -23,24 +23,6 @@
       "key": "2"
     }
   ],
-  "quickadd:choice:157849c3-98a1-456b-8e14-89278b79be46": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "A"
-    }
-  ],
-  "quickadd:choice:dab8fdc7-21e2-4c4f-97fc-bd612aec191f": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "Z"
-    }
-  ],
   "quickadd:choice:efd6fd54-c11d-4130-b158-abaadba75c06": [
     {
       "modifiers": [
@@ -48,6 +30,15 @@
         "Shift"
       ],
       "key": "X"
+    }
+  ],
+  "quickadd:choice:91d278fd-3688-49f2-863d-58e2b86f531e": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Z"
     }
   ]
 }

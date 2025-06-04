@@ -4,41 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "11a7290a24849e59",
+        "id": "290089ffa2e2350e",
         "type": "tabs",
         "children": [
           {
-            "id": "f9809bf798ab06a6",
+            "id": "515508e12620cce8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/Template_aulas.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Template_aulas"
-            }
-          }
-        ]
-      },
-      {
-        "id": "55e2024f85ca4536",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a8465b6fa9e73ce1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS Solutions Architect Associate/Conceitos/AWS Snowball.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "AWS Snowball"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -94,11 +70,13 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "63957e79ce726ad5",
@@ -207,52 +185,54 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a8465b6fa9e73ce1",
+  "active": "515508e12620cce8",
   "lastOpenFiles": [
-    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/other storage solutions.md",
-    "AWS Solutions Architect Associate/Conceitos/AWS Snowball.md",
-    "templates/Template_aulas.md",
-    "AWS Solutions Architect Associate/Exercicios/Untitled.md",
+    "AWS Solutions Architect Associate/Conceitos/DNS.md",
+    "AWS Solutions Architect Associate/Conceitos/EBS Multi-Attach.md",
+    "AWS Solutions Architect Associate/Conceitos/EC2 Launch Type.md",
+    "AWS Solutions Architect Associate/Conceitos/EC2 Placement groups.md",
+    "AWS Solutions Architect Associate/Conceitos/DNS Health Checks.md",
+    "AWS Solutions Architect Associate/Conceitos/S3 CORS.md",
+    "AWS Solutions Architect Associate/Conceitos/S3 Event Notifications.md",
+    "AWS Solutions Architect Associate/Conceitos/S3 Storage Lens.md",
+    "AWS Solutions Architect Associate/Conceitos/SQS FIFO Queue.md",
+    "AWS Solutions Architect Associate/Exercicios/Quiz Cloudfront & Accelerator.md",
+    "Images/Pasted image 20250523175841.png",
+    "Images/Pasted image 20250523175755.png",
+    "Images/Pasted image 20250523175723.png",
+    "Images/Pasted image 20250523175634.png",
+    "Images/Pasted image 20250523175550.png",
+    "AWS Solutions Architect Associate/aulas/Serviços/Cloudfront e Global-accelerator.md",
+    "Images/Pasted image 20250523175022.png",
+    "Images/Pasted image 20250523174848.png",
+    "Images/Pasted image 20250523174633.png",
+    "Images/Pasted image 20250523174437.png",
+    "Images/Pasted image 20250523174217.png",
+    "AWS Solutions Architect Associate/Conceitos/Cloudfront VPC Origins.md",
+    "AWS Solutions Architect Associate/Exercicios/Quiz Containers.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/AWS App Runner e App2Container.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/EKS.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/ECR.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/ECS.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Arquiteturas comuns para SAA.md",
+    "AWS Solutions Architect Associate/Conceitos/Containers e Escalamento.md",
+    "AWS Solutions Architect Associate/Conceitos/Container Storage.md",
+    "AWS Solutions Architect Associate/Conceitos/IAM para ECS.md",
+    "AWS Solutions Architect Associate/Conceitos/Fargate Launch Type.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Overview e Docker.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/overview.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/Amazon Data Firehose.md",
+    "AWS Solutions Architect Associate/Exercicios/Quiz Messaging e Integration.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration",
     "templates/setDateProperty.js",
-    "templates/Template_aulas 1.md",
-    "templates/Untitled 1.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/Untitled.md",
-    "templates/concept_template.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 Security.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 SAA Concepts.md",
-    "conceitos/AWS Snowball.md",
     "conceitos",
-    "<% tp.frontmatter.title %>.md",
-    "templates/Template_conceitos.md",
-    "templates/Template_conceitos_tagged.md",
     "scripts/create_concept.js",
     "scripts/crecreate_concept.js",
     "scripts",
-    "AWS Solutions Architect Associate/aulas/Serviços/Elastic Beanstalk.md",
-    "AWS Solutions Architect Associate/Exercicios/Quiz S3.md",
     "AWS Solutions Architect Associate/aulas/Serviços/Other - storage",
-    "Images/Pasted image 20250513185540.png",
-    "Images/Pasted image 20250513185503.png",
-    "Images/Pasted image 20250513185428.png",
-    "Images/Pasted image 20250513185408.png",
-    "Images/Pasted image 20250513185343.png",
-    "Images/Pasted image 20250513185329.png",
-    "Images/Pasted image 20250513185310.png",
-    "Images/Pasted image 20250513185234.png",
-    "Images/Pasted image 20250513185201.png",
-    "Images/Pasted image 20250513185127.png",
-    "AWS Solutions Architect Associate/Conceitos/S3 Object Lambda.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 Glacier Vault Lock.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 Access Points.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 - pre-signed URL.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 -Audit logs.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 - add MFA.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 CORS.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 Encryption.md",
     "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage",
     "AWS Solutions Architect Associate/aulas/Serviços/Elastic Beanst",
-    "AWS Solutions Architect Associate/aulas/SAA use cases discussions",
-    "AWS Solutions Architect Associate/aulas/Serviços/Route 53",
     "canvas/Untitled.canvas",
     "canvas/geral.canvas"
   ]

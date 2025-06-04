@@ -3,6 +3,7 @@ aliases:
   - Elastic Block Store
 tags:
   - AWS-EC2
+  - AWS-STORAGE
 ---
 ---
 Creation : 10th April 2025
