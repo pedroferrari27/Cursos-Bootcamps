@@ -11,10 +11,14 @@
             "id": "515508e12620cce8",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "AWS Solutions Architect Associate/Conceitos/SSL/TSL Certificates.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "TSL Certificates"
             }
           }
         ]
@@ -70,13 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "63957e79ce726ad5",
@@ -187,42 +189,42 @@
   },
   "active": "515508e12620cce8",
   "lastOpenFiles": [
-    "AWS Solutions Architect Associate/Conceitos/DNS.md",
-    "AWS Solutions Architect Associate/Conceitos/EBS Multi-Attach.md",
-    "AWS Solutions Architect Associate/Conceitos/EC2 Launch Type.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Elastic Beanstalk.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Cloudfront e Global-accelerator.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 SAA Concepts.md",
+    "AWS Solutions Architect Associate/Conceitos/S3 Batch operation.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/S3 - storage/S3 Security.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Route 53/Time to Live TTL.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Route 53/Routing Polices.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Route 53/Overview e DNS.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Route 53/CNAME  vs Alias.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/other storage solutions.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/Other - storage/Comparação entre alternativas de armazenamento.md",
+    "AWS Solutions Architect Associate/Conceitos/Gateway Load Balancer (GWLB).md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/Scalability and Availability.md",
+    "AWS Solutions Architect Associate/Conceitos/Network Load Balancing (NLB).md",
+    "AWS Solutions Architect Associate/Conceitos/Application Load Balancing(ALB).md",
+    "AWS Solutions Architect Associate/Conceitos/EC2 Instance Store.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 instance Storage.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 inicio.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/EKS.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Overview e Docker.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/AWS App Runner e App2Container.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Arquiteturas comuns para SAA.md",
     "AWS Solutions Architect Associate/Conceitos/EC2 Placement groups.md",
-    "AWS Solutions Architect Associate/Conceitos/DNS Health Checks.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 CORS.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 Event Notifications.md",
-    "AWS Solutions Architect Associate/Conceitos/S3 Storage Lens.md",
-    "AWS Solutions Architect Associate/Conceitos/SQS FIFO Queue.md",
-    "AWS Solutions Architect Associate/Exercicios/Quiz Cloudfront & Accelerator.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/EC2/EC2 - Solutions architect associate level.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/Amazon Kinesis.md",
+    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/Comparação SQS SNS KINESIS.md",
     "Images/Pasted image 20250523175841.png",
     "Images/Pasted image 20250523175755.png",
     "Images/Pasted image 20250523175723.png",
     "Images/Pasted image 20250523175634.png",
     "Images/Pasted image 20250523175550.png",
-    "AWS Solutions Architect Associate/aulas/Serviços/Cloudfront e Global-accelerator.md",
     "Images/Pasted image 20250523175022.png",
     "Images/Pasted image 20250523174848.png",
     "Images/Pasted image 20250523174633.png",
     "Images/Pasted image 20250523174437.png",
     "Images/Pasted image 20250523174217.png",
-    "AWS Solutions Architect Associate/Conceitos/Cloudfront VPC Origins.md",
-    "AWS Solutions Architect Associate/Exercicios/Quiz Containers.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/AWS App Runner e App2Container.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/EKS.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/ECR.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/ECS.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Arquiteturas comuns para SAA.md",
-    "AWS Solutions Architect Associate/Conceitos/Containers e Escalamento.md",
-    "AWS Solutions Architect Associate/Conceitos/Container Storage.md",
-    "AWS Solutions Architect Associate/Conceitos/IAM para ECS.md",
-    "AWS Solutions Architect Associate/Conceitos/Fargate Launch Type.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers/Overview e Docker.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/overview.md",
-    "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration/Amazon Data Firehose.md",
-    "AWS Solutions Architect Associate/Exercicios/Quiz Messaging e Integration.md",
     "AWS Solutions Architect Associate/aulas/Serviços/AWS Containers",
     "AWS Solutions Architect Associate/aulas/Serviços/AWS Messaging and integration",
     "templates/setDateProperty.js",
