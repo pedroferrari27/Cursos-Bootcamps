@@ -32,7 +32,7 @@ module.exports = async (params) => {
     const cleanConceptName = conceptName.trim();
     
     // Updated folder path
-    const conceptFolder = "AWS Solutions Architect Associate/Conceitos";
+    const conceptFolder = "Azure Databricks DIO/Conceitos";
     
     // Check if the concept folder exists, create if not (including parent folders)
     const folderPath = conceptFolder.split('/');

@@ -90,11 +90,11 @@
       "folder": {
         "enabled": true,
         "folders": [
-          "AWS Solutions Architect Associate/aulas"
+          "Azure Databricks DIO/aulas"
         ],
         "chooseWhenCreatingNote": false,
         "createInSameFolderAsActiveFile": false,
-        "chooseFromSubfolders": false
+        "chooseFromSubfolders": true
       },
       "appendLink": false,
       "openFileInNewTab": {
