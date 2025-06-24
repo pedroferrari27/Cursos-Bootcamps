@@ -1,0 +1,26 @@
+# Terraform files and directories (in Terraform subdirectory)
+Terraform/**/.terraform/
+Terraform/**/.terraform.lock.hcl
+
+# Terraform state files
+Terraform/**/*.tfstate
+Terraform/**/*.tfstate.*
+Terraform/**/*.tfstate.backup
+
+# Terraform variable files (may contain sensitive data)
+Terraform/**/*.tfvars
+Terraform/**/*.tfvars.json
+
+# Terraform plan files
+Terraform/**/*.tfplan
+
+# Terraform crash logs
+Terraform/**/crash.log
+Terraform/**/crash.*.log
+
+# Terraform RC files
+Terraform/**/.terraformrc
+Terraform/**/terraform.rc
+
+# Terraform lock files
+Terraform/**/.terraform.tfstate.lock.info
