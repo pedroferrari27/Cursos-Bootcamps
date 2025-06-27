@@ -46,6 +46,38 @@ aws_secret_access_key = [secret key]
 
 Obs: Arquivos .tf são processados como se fossem todos o mesmo arquivo, então todos devem estar no mesmo diretório
 
+
+outra coisa importante, ao usar o git, devemos usar o ==.gitignore== para prevenir passar os arquivos gerais do terraform,que são específicos da sua maquina, para o repositório. assim o código funcionara em qualquer maquina depois do ==terraform init== . como o exemplo a seguir, que temos os arquivos do terraform em uma pasta ''terraform'' 
+
+.gitiginore
+```
+# Terraform files and directories (in Terraform subdirectory)
+Terraform/**/.terraform/
+Terraform/**/.terraform.lock.hcl
+
+# Terraform state files
+Terraform/**/*.tfstate
+Terraform/**/*.tfstate.*
+Terraform/**/*.tfstate.backup
+
+# Terraform variable files (may contain sensitive data)
+Terraform/**/*.tfvars
+Terraform/**/*.tfvars.json
+
+# Terraform plan files
+Terraform/**/*.tfplan
+
+# Terraform crash logs
+Terraform/**/crash.log
+Terraform/**/crash.*.log
+
+# Terraform RC files
+Terraform/**/.terraformrc
+Terraform/**/terraform.rc
+
+# Terraform lock files
+Terraform/**/.terraform.tfstate.lock.info
+```
 ### 1- criamos um arquivo de providers
 
 criamos um arquivo chamado providers.tf, e inserimos a configuração especificada em 
@@ -184,4 +216,166 @@ e podemos vê-lá no console
 ### 5- internet gateway e terraform fmt
 
 criamos um internet gateway para habilitar comunicação dos nossos recursos na vpc para a internet
+
+adicionamos o recurso internet gateway https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway
+
+```
+resource "aws_internet_gateway" "test_internet_gateaway" {
+vpc_id = aws_vpc.trial_VPC.id
+
+  
+tags = {
+Name = "dev_internet_gateaway"
+}
+}
+```
+lembrando de usar referencias para pegar o id do vpc em
+```
+vpc_id = aws_vpc.trial_VPC.id
+```
+e conseguimos provisionar um internet gateway. apenas precisamos usar o ==terraform plan== e ==terraform apply==
+
+agora podemos introduzir um conceito novo, o comando ==terraform fmt==
+
+esse comando ajuda a reformatar o código nos arquivos .tf para arrumar algumas inconsistências no código
+
+as vezes devemos dar override no arquivo para salvar as mudanças.
+
+![[Pasted image 20250626171537.png]]lembrando de adicionar o recurso no vscode para tracking
+
+### 6 - Criando uma Route Table
+
+nota-se que há duas formas de criar uma tabela de roteamento para vpc no terraform, usando o recurso "aws_route" e o "aws_route_table". usaremos o route table: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table
+
+
+usaremos um recurso route table neste projeto.
+
+então primeiramente criaremos uma tabela de roteamento
+```
+#criamos uma tabela de roteamento
+resource "aws_route_table" "trial_route_table" {
+	vpc_id = aws_vpc.trial_VPC.id
+	tags = {
+		Name = "dev_route_table"
+	}
+}
+```
+
+e depois criaremos uma rota padrão, como em https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route
+
+```
+resource "aws_route" "dev_rota_padrão"{
+	route_table_id = aws_route_table.trial_route_table.id
+	destination_cidr_block = "0.0.0.0/0"
+	gateway_id = aws_internet_gateway.trial_internet_gateway.id
+}
+```
+
+obs: 0.0.0.0/0 permite conexão de todos os ips, ou seja, todos os endereços de ip serão direcionados aqui
+
+e rodar ==terraform plan== e ==terraform apply== para deploy
+
+![[Pasted image 20250626180417.png]]
+dar track da route table no vscode
+
+### 7 - Associando nosso subnet com o route table
+
+criaremos um recurso para associar esses recursos : https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association
+
+```
+resource "aws_route_table_association" "trial_rt_subnet_association" {
+	subnet_id = aws_subnet.trial_public_subnet.id
+	route_table_id = aws_route_table.trial_route_table.id
+}
+```
+
+e rodar ==terraform plan== e ==terraform apply== para deploy
+
+esse recurso não conseguimos dar tracking no vscode, mas conseguimos ver no aws console.
+
+![[Pasted image 20250626181653.png]]
+
+### 8 - criando security groups
+
+![[Pasted image 20250626190818.png]]
+diagrama de uso dos security groups
+
+usaremos este recurso : https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
+
+nota-se que precisamos criar 3 recursos, o aws_security_group, o [`aws_vpc_security_group_egress_rule`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_egress_rule) para regras de conexão de saída e 
+[`aws_vpc_security_group_ingress_rule`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_security_group_ingress_rule) para regras de entrada.
+
+esses são as melhores praticas atuais, mas podem mudar no futuro
+
+criando o security group:
+
+```
+resource "aws_security_group" "trial_security_group" {
+	name = "dev_trial_security_group"
+	description = "grupo de seguranca para ambiente dev na aws"
+	vpc_id = aws_vpc.trial_VPC.id
+	tags = {
+		Name = "dev_trial_security_group"
+	}
+}
+```
+obs: não usar acentos e ç na descrição
+
+agora com o security group feito, devemos organizar as regras de entrada e saída.
+
+começando pela saída :
+
+```
+resource "aws_vpc_security_group_egress_rule" "example" {
+	security_group_id = aws_security_group.trial_security_group.id
+	cidr_ipv4 = "0.0.0.0/0"
+	ip_protocol = "-1"
+	description = "all access from my security group"
+	
+	tags = {
+		Name = "access everything from my security group"
+	}
+}
+```
+usamos o ip_protocol = "-1" para permitir todos os protocolos, usamos o bloco 0.0.0.0/0 para permitir conexão de saída com todos os ips.
+
+essa solução já resolve nossa saída, pois queremos conectar com todos os serviços.
+
+para a entrada, faremos permissões mais detalhadas
+
+```
+locals {
+	common_services = {
+		ssh = { protocol = "tcp", port = 22 }
+		http = { protocol = "tcp", port = 80 }
+		https = { protocol = "tcp", port = 443 }
+		dns = { protocol = "udp", port = 53 }
+	}
+}
+
+resource "aws_vpc_security_group_ingress_rule" "common_services" {
+	for_each = local.common_services
+
+	security_group_id = aws_security_group.trial_security_group.id
+	description = "${upper(each.key)} access from my IP"
+	
+	ip_protocol = each.value.protocol
+	from_port = each.value.port
+	to_port = each.value.port
+
+	cidr_ipv4 = "0.0.0.0/0"
+
+	tags = {
+	Name = "${upper(each.key)} from my IP"
+	}
+}
+```
+
+aqui usamos variável locals para criar o recurso aws_vpc_security_group_ingress_rule 4 vezes, cada vez permitindo um dos protocolos. podemos adicionar manualmente também criando 4 recursos manualmente e escrevendo suas portas.
+
+no caso usamos o cidr block 0.0.0.0/0 para permitir acesso a todos como exemplo. na pratica deveremos usar um ip apropriado para n permitir o acesso de estranhos na internet. para isso colocaremos ali nosso endereço de ip/32 (ou seja, permitindo só aquele endereço exato).
+
+agora rodamos  ==terraform plan== e ==terraform apply== para deploy
+
+### 9 - criando um AMI
 

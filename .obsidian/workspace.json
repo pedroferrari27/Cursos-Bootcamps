@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#endereço",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -188,10 +189,15 @@
   },
   "active": "aa80cbd800f45ed8",
   "lastOpenFiles": [
+    "Images/Pasted image 20250626190818.png",
+    "Images/Pasted image 20250626181653.png",
+    "Images/Pasted image 20250626180417.png",
+    "Images/Pasted image 20250626171537.png",
+    "Terraform/aulas/Installation.md",
+    "Terraform/Projetos/Projeto Trial/Trial processes.md",
     "Terraform/INFO.md",
     "README.md",
     "Atalhos.md",
-    "Terraform/Projetos/Projeto Trial/Trial processes.md",
     "Images/Pasted image 20250612170026.png",
     "Images/Pasted image 20250612165858.png",
     "Terraform/Projetos/Projeto Trial/Terraform/terraform.tfstate.backup",
@@ -201,7 +207,6 @@
     "Terraform/Projetos/Projeto Trial/Terraform/Main.tf",
     "Terraform/Projetos/Projeto Trial/Terraform/Providers.tf",
     "Terraform/Projetos/Projeto Trial/Terraform",
-    "Terraform/aulas/Installation.md",
     "Terraform/aulas/Untitled.md",
     "Terraform/Projetos/Projeto Trial/Code/Terraform/Providers.tf",
     "Terraform/Projetos/Projeto Trial/Code/Terraform",
@@ -216,9 +221,6 @@
     "Azure Databricks DIO/aulas/Introdução.md",
     "Images/Pasted image 20250607155925.png",
     "Images/Pasted image 20250607155054.png",
-    "Images/Pasted image 20250607155029.png",
-    "Images/Pasted image 20250607154930.png",
-    "Images/Pasted image 20250607154905.png",
     "Azure Databricks DIO/Conceitos/aa.md",
     "templates/Template_aulas.md",
     "AWS Solutions Architect Associate/Mindmaps.md",
