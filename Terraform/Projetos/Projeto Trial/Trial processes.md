@@ -78,6 +78,13 @@ Terraform/**/terraform.rc
 # Terraform lock files
 Terraform/**/.terraform.tfstate.lock.info
 ```
+
+nota-se que em um ambiente colaborativo de trabalho, deveremos passar os arquivos de estado no git também para assegurar o uso dos recursos corretamente pela equipe, nesse caso deveremos remover os arquivos do state do gitignore.
+
+para trabalho em equipe colaborativo, é necessário que todos tenho acesso aos mesmos arquivos de estado, o usual é utilizar uma pasta compartilhada que depois será montada no seu sistema, como por exemplo em um arquivo do S3, com implementação de controle de versionamento e alguma forma de previr escrita concorrente nestes arquivos.
+
+nota-se que as melhores praticas quando queremos criar vários ambientes de desenvolvimento diferentes usando o terraform, como ambientes de dev,prod e teste, é criar um arquivo de estado separado para cada um deles, seguindo o formato dito anteriormente.
+
 ### 1- criamos um arquivo de providers
 
 criamos um arquivo chamado providers.tf, e inserimos a configuração especificada em 
@@ -378,4 +385,235 @@ no caso usamos o cidr block 0.0.0.0/0 para permitir acesso a todos como exemplo.
 agora rodamos  ==terraform plan== e ==terraform apply== para deploy
 
 ### 9 - criando um AMI
+
+para criar e deletar instancias rapidamente, precisamos usar uma imagem de instancia. para isso usaremos o recurso "aws_ami" https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami . nota-se que para funções de cópia ou criptografia, precisaremos usar recursos de ami diferentes do terraform.
+
+neste projeto iremos usar uma ami já pronta, para isso primeiro devemos encontrar ami o id dessa ami
+
+no lançamento de uma instancia no console aws, podemos ver as imagens.
+![[Pasted image 20250703180826.png]]
+
+encontramos a tag da ami padrão do ubuntu 22.04. com ela podemos buscar pelo pelo id dela na seção images do ECS
+
+![[Pasted image 20250703181056.png]]![[Pasted image 20250703181451.png]]
+deste, precisaremos copiar o owner id, no caso 099720109477 e o ami name, no caso 
+"ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20250610"
+
+então podemos criar o recurso
+
+criaremos em um novo arquivo ==DatasDatasources.tfources.tf== para guardar todos nossos recursos de data
+
+![[Pasted image 20250703182435.png]]
+
+nota-se que alteramos a data para * no nome do ami para pegar a mais recente, junto com a tag most_recent.
+
+podemos dar ==terraform apply== para gerar o recurso. depois disso já podemos ver o ami com o ==terraform show== ou olhando no arquivo terraform.tfstate
+
+![[Pasted image 20250703182944.png]]
+
+### 10 - criando uma chave ssh
+
+usando um comando linux ==ssh-keygen -t ed25519== para gerar uma chave ssh usando o ed25519 ao invez do RSA padrão , que é um algorítimo mais novo e mais seguro para gerar chaves ssh. então salvar em um arquivo para usar.
+
+a exemplo, se salvarmos na pasta .ssh padrão podemos acessá-la com o comando
+```
+ ls ~/.ssh
+```
+ 
+então usaremos um recurso para utilizar essa chave ssh na aws : https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
+
+assumindo que salvaremos na pasta padrão ssh , podemos passar a chave ssh publica dessa forma
+
+```
+resource "aws_key_pair" "trial_key_pair" {
+	key_name = "trial_key"
+	public_key = file("~/.ssh/trial_key.pub")
+}
+```
+
+podemos passar a chave publica direto como string também.
+
+então podemos dar ==terraform plan== e ==terraform apply==
+lembrando de usar o ==terraform fmt== para formatar de vez em quando para garantir o formato correto.
+
+podemos dar track no vscode com esse recurso também
+![[Pasted image 20250704152611.png]]
+
+### 11 - criando uma instancia EC2
+
+para criar uma instancia usaremos o recurso "aws_instance" https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+
+```
+resource "aws_instance" "trial_dev_node" {
+	ami = data.aws_ami.trial_server_ami.id
+	instance_type = "t3.micro"
+	vpc_security_group_ids = [aws_security_group.trial_security_group.id]
+	subnet_id = aws_subnet.trial_public_subnet.id
+	key_name = aws_key_pair.trial_key_pair.id
+	
+tags = {
+	Name = "trial_dev_node"
+}
+
+root_block_device {
+	volume_size = 10
+}
+}
+```
+
+nota-se que ao referenciar algum data source como feito no AMI, deveremos adicionar um prefixo data, como feito na segunda linha do código acima
+
+com esse snippet criamos uma instancia usando a ami criada, no vpc criado usando a subnet criada e aplicamos nosso grupo de segurança, usando 10GB de armazenamento em uma instancia t3.micro para manter nos padrões do free tier
+
+antes de dar ==terraform apply== , usaremos ==USER DATA== para fazer o bootstrap da nossa instancia, ou seja, para instalarmos dados iniciais para inicialização da instancia. 
+
+usaremos o seguinte user data para instalar e configurar o docker
+
+```
+#!/bin/bash
+
+# Update package index
+apt-get update -y
+
+# Install packages to allow apt to use a repository over HTTPS
+apt-get install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+# Add Docker's official GPG key
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Set up the repository
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update package index again
+apt-get update -y
+
+# Install Docker Engine
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Start and enable Docker service
+systemctl start docker
+systemctl enable docker
+
+# Add ubuntu user to docker group (so you can run docker without sudo)
+usermod -aG docker ubuntu
+
+# Install Docker Compose (standalone version as backup)
+DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# Create a symbolic link for easier access
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+# Verify installation by creating a test log
+docker --version > /var/log/docker-install.log
+docker-compose --version >> /var/log/docker-install.log
+
+# Set up log rotation for Docker
+cat > /etc/logrotate.d/docker << EOF
+/var/lib/docker/containers/*/*.log {
+    rotate 5
+    daily
+    compress
+    size=10M
+    missingok
+    delaycompress
+    copytruncate
+}
+EOF
+
+# Configure Docker daemon for better logging and security
+mkdir -p /etc/docker
+cat > /etc/docker/daemon.json << EOF
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
+    },
+    "live-restore": true
+}
+EOF
+
+# Restart Docker to apply configuration
+systemctl restart docker
+
+# Test Docker installation
+docker run hello-world >> /var/log/docker-install.log 2>&1
+
+# Clean up
+apt-get autoremove -y
+apt-get autoclean
+
+echo "Docker installation completed successfully" >> /var/log/docker-install.log
+```
+
+e salvamos em um arquivo ==Userdata.tpl==
+
+então, o adicionamos ao nosso main.tf
+
+```
+resource "aws_instance" "trial_dev_node" {
+ami = data.aws_ami.trial_server_ami.id
+instance_type = "t3.micro"
+vpc_security_group_ids = [aws_security_group.trial_security_group.id]
+subnet_id = aws_subnet.trial_public_subnet.id
+key_name = aws_key_pair.trial_key_pair.id
+user_data = file("Userdata.tpl")
+  
+root_block_device {
+volume_size = 10
+}
+
+tags = {
+Name = "trial_dev_node"
+}
+}
+```
+
+sempre checar se o nome do arquivo esta correto
+
+então podemos usar o plan e o apply para lançar nossa instancia
+
+### 12 - acessando a instancia EC2
+
+para acessar, usaremos o ssh, e para usar, precisaremos do ip publico da nossa instancia.
+
+podemos adquirir esse ip de duas formas: no console aws ou olhando no terraform state
+
+para ver no terraform state usaremos o commando ==terraform state list== para ver todos os recursos usados, no momento temos
+
+![[Pasted image 20250711144242.png]]
+
+nossa instancia esta como "aws_instance.trial_dev_node"
+
+então usaremos o comando ==terraform state show== aws_instance.trial_dev_node
+que mostrará todas as informações da instancia, assim como o ip publico
+
+com isso podemos usar o ssh
+
+para usar a nossa chave que guardamos no diretório .ssh usaremos o commando
+
+ssh -i ~/.ssh/{nome da chave} username@ip
+
+no nosso caso seria 
+
+ssh -i ~/.ssh/trial_key ubuntu@ip 
+
+então estaremos logados na instancia ec2.
+
+podemos usar um ==docker --version== para verificar a instalação do docker e confirmar o uso do userdata.
+
+agora podemos criar algumas configs para o ssh para que possamos acessar tudo dentro do vscode.
+
+para isso usaremos esta extensão 
+
+![[Pasted image 20250711151619.png]]
 

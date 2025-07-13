@@ -94,3 +94,25 @@ resource "aws_vpc_security_group_ingress_rule" "common_services" {
     Name = "${upper(each.key)} from my IP"
   }
 }
+resource "aws_key_pair" "trial_key_pair" {
+  key_name   = "trial_key"
+  public_key = file("~/.ssh/trial_key.pub")
+}
+
+resource "aws_instance" "trial_dev_node" {
+  ami                    = data.aws_ami.trial_server_ami.id
+  instance_type          = "t3.micro"
+  vpc_security_group_ids = [aws_security_group.trial_security_group.id]
+  subnet_id              = aws_subnet.trial_public_subnet.id
+  user_data = file("Userdata.tpl")
+  key_name = "trial_key"
+
+
+  root_block_device {
+    volume_size = 10
+  }
+  
+  tags = {
+    Name = "trial_dev_node"
+  }
+}
